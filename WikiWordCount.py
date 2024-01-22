@@ -1,15 +1,10 @@
-# Python program to read
-# json file
-
 import json
 import re
 
-# Opening JSON file
 import xmltodict
 
 with open("fawiki-20240120-pages-articles-multistream.xml") as xml_file:
     wiki_dict = xmltodict.parse(xml_file.read())
-# wikiJsonFile = open('fawiki-20240120-pages-articles-multistream.json')
 wiki_data = json.dumps(wiki_dict)
 keys = ['title', 'text']
 articles = {x: wiki_data[x] for x in keys}
@@ -36,4 +31,3 @@ for word in words:
     total_word_count = total_word_count + word_counter
 
 print(total_word_count)
-wikiJsonFile.close()
